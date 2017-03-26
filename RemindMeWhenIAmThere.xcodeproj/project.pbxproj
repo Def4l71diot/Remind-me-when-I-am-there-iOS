@@ -60,9 +60,8 @@
 			children = (
 				049667181E8871FD0034C9AB /* ViewControllers */,
 				04367EB01E82990A00718595 /* AppDelegate.swift */,
-				04367EB41E82990B00718595 /* Main.storyboard */,
+				049667241E8875A80034C9AB /* Storyboards */,
 				04367EBA1E82990B00718595 /* Assets.xcassets */,
-				04367EBC1E82990B00718595 /* LaunchScreen.storyboard */,
 				04367EBF1E82990B00718595 /* Info.plist */,
 				04367EB71E82990B00718595 /* RemindMeWhenIAmThere.xcdatamodeld */,
 			);
@@ -84,6 +83,15 @@
 				049667221E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		049667241E8875A80034C9AB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				04367EB41E82990B00718595 /* Main.storyboard */,
+				04367EBC1E82990B00718595 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

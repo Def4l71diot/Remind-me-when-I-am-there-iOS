@@ -8,6 +8,36 @@
 
 import UIKit
 
-class LoadingIndicatorViewExtension: NSObject {
+var loadingIndicator = UIActivityIndicatorView()
 
+extension UIViewController {
+    func showLoadingIndicator() {
+        let halfScreenCoef: CGFloat = 2
+        let loadingIndicatorWidthCoef: CGFloat = 2.5
+        let loadingIndicatorHeightCoef: CGFloat = 5
+        let loadingScreenCornerRadius: CGFloat = 25
+        let screenWidth = UIScreen.main.bounds.size.width
+        let screenHeight = UIScreen.main.bounds.size.height
+        
+        loadingIndicator.frame =
+            CGRect(x: 0,
+                   y: 0,
+                   width: screenWidth / loadingIndicatorWidthCoef,
+                   height: screenHeight / loadingIndicatorHeightCoef)
+        
+        loadingIndicator.center =
+            CGPoint(x: screenWidth / halfScreenCoef,
+                    y: screenHeight / halfScreenCoef)
+        
+        loadingIndicator.layer.cornerRadius = loadingScreenCornerRadius
+        loadingIndicator.activityIndicatorViewStyle = .whiteLarge
+        loadingIndicator.backgroundColor = (UIColor (white: 0.3, alpha: 0.8))
+        self.view.addSubview(loadingIndicator)
+        loadingIndicator.startAnimating()
+    }
+    
+    func hideLoadingIndicator() {
+        loadingIndicator.stopAnimating()
+        loadingIndicator.removeFromSuperview()
+    }
 }

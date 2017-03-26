@@ -13,7 +13,12 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.showLoadingIndicator()
+        let dispatch = DispatchTime.now() + .seconds(4)
+        weak var weakSelf = self
+        DispatchQueue.main.asyncAfter(deadline: dispatch) {
+            weakSelf?.hideLoadingIndicator()
+        }
     }
 
     override func didReceiveMemoryWarning() {
