@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0421F6431E8DB6FD00A4093C /* BaseUsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421F6421E8DB6FD00A4093C /* BaseUsersData.swift */; };
 		04367EB11E82990A00718595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04367EB01E82990A00718595 /* AppDelegate.swift */; };
 		04367EB61E82990B00718595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04367EB41E82990B00718595 /* Main.storyboard */; };
 		04367EB91E82990B00718595 /* RemindMeWhenIAmThere.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04367EB71E82990B00718595 /* RemindMeWhenIAmThere.xcdatamodeld */; };
@@ -23,10 +24,16 @@
 		049667271E8ADAA10034C9AB /* HttpRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667261E8ADAA10034C9AB /* HttpRequester.swift */; };
 		0496672A1E8ADAD00034C9AB /* BaseHttpRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667291E8ADAD00034C9AB /* BaseHttpRequester.swift */; };
 		04FAA3941E8C53B80023CBE3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAA3931E8C53B80023CBE3 /* User.swift */; };
-		04FAA3971E8C54650023CBE3 /* UserDictExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAA3961E8C54650023CBE3 /* UserDictExtension.swift */; };
+		04FAA3971E8C54650023CBE3 /* BaseUserDictExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAA3961E8C54650023CBE3 /* BaseUserDictExtension.swift */; };
+		04FAA39A1E8D63B30023CBE3 /* BaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAA3991E8D63B30023CBE3 /* BaseUser.swift */; };
+		04FAA39E1E8D69940023CBE3 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAA39D1E8D69940023CBE3 /* UserFactory.swift */; };
+		04FAA3A01E8D6C0B0023CBE3 /* BaseUserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAA39F1E8D6C0B0023CBE3 /* BaseUserFactory.swift */; };
+		04FAA3A21E8D8CE50023CBE3 /* UserAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAA3A11E8D8CE50023CBE3 /* UserAuthManager.swift */; };
+		04FAA3A41E8D99BD0023CBE3 /* BaseUserAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAA3A31E8D99BD0023CBE3 /* BaseUserAuthManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0421F6421E8DB6FD00A4093C /* BaseUsersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseUsersData.swift; path = Data/Remote/Base/BaseUsersData.swift; sourceTree = "<group>"; };
 		04367EAD1E82990A00718595 /* RemindMeWhenIAmThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemindMeWhenIAmThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04367EB01E82990A00718595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04367EB51E82990B00718595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,7 +52,12 @@
 		049667261E8ADAA10034C9AB /* HttpRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpRequester.swift; path = Helpers/HttpRequester.swift; sourceTree = "<group>"; };
 		049667291E8ADAD00034C9AB /* BaseHttpRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseHttpRequester.swift; path = Helpers/Base/BaseHttpRequester.swift; sourceTree = "<group>"; };
 		04FAA3931E8C53B80023CBE3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
-		04FAA3961E8C54650023CBE3 /* UserDictExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDictExtension.swift; path = Models/Extensions/UserDictExtension.swift; sourceTree = "<group>"; };
+		04FAA3961E8C54650023CBE3 /* BaseUserDictExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseUserDictExtension.swift; path = Models/Extensions/BaseUserDictExtension.swift; sourceTree = "<group>"; };
+		04FAA3991E8D63B30023CBE3 /* BaseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseUser.swift; path = Models/Base/BaseUser.swift; sourceTree = "<group>"; };
+		04FAA39D1E8D69940023CBE3 /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFactory.swift; path = Models/Factories/UserFactory.swift; sourceTree = "<group>"; };
+		04FAA39F1E8D6C0B0023CBE3 /* BaseUserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseUserFactory.swift; path = Models/Factories/Base/BaseUserFactory.swift; sourceTree = "<group>"; };
+		04FAA3A11E8D8CE50023CBE3 /* UserAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAuthManager.swift; path = Helpers/UserAuthManager.swift; sourceTree = "<group>"; };
+		04FAA3A31E8D99BD0023CBE3 /* BaseUserAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseUserAuthManager.swift; path = Helpers/Base/BaseUserAuthManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				04827A331E8BC20000251E21 /* BaseApiData.swift */,
+				0421F6421E8DB6FD00A4093C /* BaseUsersData.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -182,6 +195,7 @@
 				049667281E8ADAA70034C9AB /* Base */,
 				049667261E8ADAA10034C9AB /* HttpRequester.swift */,
 				046DDDC81E8B02D4000B0669 /* JsonParser.swift */,
+				04FAA3A11E8D8CE50023CBE3 /* UserAuthManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -191,6 +205,7 @@
 			children = (
 				049667291E8ADAD00034C9AB /* BaseHttpRequester.swift */,
 				046DDDCA1E8B079F000B0669 /* BaseJsonParser.swift */,
+				04FAA3A31E8D99BD0023CBE3 /* BaseUserAuthManager.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -198,6 +213,8 @@
 		04FAA3921E8C538D0023CBE3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				04FAA39B1E8D68DB0023CBE3 /* Factories */,
+				04FAA3981E8D639B0023CBE3 /* Base */,
 				04FAA3951E8C53EA0023CBE3 /* Extensions */,
 				04FAA3931E8C53B80023CBE3 /* User.swift */,
 			);
@@ -207,9 +224,34 @@
 		04FAA3951E8C53EA0023CBE3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				04FAA3961E8C54650023CBE3 /* UserDictExtension.swift */,
+				04FAA3961E8C54650023CBE3 /* BaseUserDictExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		04FAA3981E8D639B0023CBE3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				04FAA3991E8D63B30023CBE3 /* BaseUser.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		04FAA39B1E8D68DB0023CBE3 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				04FAA39C1E8D68FE0023CBE3 /* Base */,
+				04FAA39D1E8D69940023CBE3 /* UserFactory.swift */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
+		04FAA39C1E8D68FE0023CBE3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				04FAA39F1E8D6C0B0023CBE3 /* BaseUserFactory.swift */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,18 +328,24 @@
 			files = (
 				04FAA3941E8C53B80023CBE3 /* User.swift in Sources */,
 				049667201E88736D0034C9AB /* MainViewController.swift in Sources */,
-				04FAA3971E8C54650023CBE3 /* UserDictExtension.swift in Sources */,
+				04FAA3971E8C54650023CBE3 /* BaseUserDictExtension.swift in Sources */,
+				04FAA39E1E8D69940023CBE3 /* UserFactory.swift in Sources */,
 				046DDDCB1E8B079F000B0669 /* BaseJsonParser.swift in Sources */,
 				04827A341E8BC20000251E21 /* BaseApiData.swift in Sources */,
+				04FAA3A01E8D6C0B0023CBE3 /* BaseUserFactory.swift in Sources */,
 				0496672A1E8ADAD00034C9AB /* BaseHttpRequester.swift in Sources */,
 				049667231E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift in Sources */,
 				049667271E8ADAA10034C9AB /* HttpRequester.swift in Sources */,
 				04367EB91E82990B00718595 /* RemindMeWhenIAmThere.xcdatamodeld in Sources */,
 				046DDDC91E8B02D4000B0669 /* JsonParser.swift in Sources */,
 				04827A3B1E8BC3D800251E21 /* ApiConfig.swift in Sources */,
+				0421F6431E8DB6FD00A4093C /* BaseUsersData.swift in Sources */,
 				04367EB11E82990A00718595 /* AppDelegate.swift in Sources */,
+				04FAA3A21E8D8CE50023CBE3 /* UserAuthManager.swift in Sources */,
 				04827A3D1E8BE62900251E21 /* UsersData.swift in Sources */,
+				04FAA3A41E8D99BD0023CBE3 /* BaseUserAuthManager.swift in Sources */,
 				04827A391E8BC33100251E21 /* BaseApiConfig.swift in Sources */,
+				04FAA39A1E8D63B30023CBE3 /* BaseUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

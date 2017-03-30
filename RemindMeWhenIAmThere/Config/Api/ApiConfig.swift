@@ -78,9 +78,11 @@ class ApiConfig: BaseApiConfig {
     }
     
     var apiAuthHeaderKey = "auth-token"
+    var apiSuccessResponseCode = 200
     var apiErrorResponseCode = 400
     var apiErrorJsonKey = "error"
     var apiErrorMessageJsonKey = "message"
+    var apiUnkwonErrorMessage = "An unknown error occurred"
     
     func getSearchUsersUrl(forPartialName partialName: String) -> String {
         let searchUsersUrlSuffix = "/search-users/\(partialName)"

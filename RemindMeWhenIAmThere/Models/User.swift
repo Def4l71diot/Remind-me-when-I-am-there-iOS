@@ -13,7 +13,7 @@ enum UserEmailStatus: String {
     case unknown
 }
 
-class User {
+class User: BaseUser {
     var username: String?
     var password: String?
     var email: String?
@@ -21,7 +21,7 @@ class User {
     var authToken: String?
     var emailStatus: UserEmailStatus?
     
-    init(
+    required init(
         withUsername username: String,
         password: String?,
         email: String?,

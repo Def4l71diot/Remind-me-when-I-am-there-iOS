@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension User {
+extension BaseUser {
     fileprivate static func getUsernameKeyForDict() -> String {
         return "username"
     }
@@ -33,7 +33,7 @@ extension User {
         return "email_status"
     }
     
-    convenience init(fromDict dict: Dictionary<String, Any>) {
+    init(fromDict dict: Dictionary<String, Any>) {
         let username = dict[User.getUsernameKeyForDict()] as! String
         let email = dict[User.getEmailKeyForDict()] as? String
         let firstName = dict[User.getFirstNameKeyForDict()] as! String

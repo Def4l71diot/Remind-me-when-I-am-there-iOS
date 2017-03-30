@@ -18,7 +18,7 @@ class HttpRequester: BaseHttpRequester {
     let contentTypeHeaderKeyName = "Content-Type"
     let contentTypeJsonHeaderValue = "application/json"
     
-    var jsonParser: BaseJsonParser?
+    var jsonParser: BaseJsonParser
     
     init(withJsonParser jsonParser: BaseJsonParser) {
         self.jsonParser = jsonParser
@@ -90,9 +90,10 @@ class HttpRequester: BaseHttpRequester {
             }
             
             do {
-                let jsonObject = try weakSelf?.jsonParser?.deserializeJson(json: responseBody!)
                 
-                completionHandler(jsonObject, response, nil)
+                let parsedResponse = try weakSelf?.handleJsonDeserialization(responseBody: responseBody, response: response)
+                
+                completionHandler(parsedResponse, response, nil)
             } catch let jsonParsingError {
                 completionHandler(nil, nil, jsonParsingError)
             }
@@ -126,7 +127,7 @@ class HttpRequester: BaseHttpRequester {
         
         if(body != nil) {
             do {
-                jsonBody = try self.jsonParser?.serializeJson(fromData: body!)
+                jsonBody = try self.jsonParser.serializeJson(fromData: body!)
             } catch let jsonParsingError {
                 completionHandler(nil, nil, jsonParsingError)
                 return
@@ -146,9 +147,9 @@ class HttpRequester: BaseHttpRequester {
             }
             
             do {
-                let jsonAsDict = try weakSelf?.jsonParser?.deserializeJson(json: responseBody!)
+                let parsedResponse = try weakSelf?.handleJsonDeserialization(responseBody: responseBody, response: response)
                 
-                completionHandler(jsonAsDict, response, nil)
+                completionHandler(parsedResponse, response, nil)
             } catch let jsonParsingError {
                 completionHandler(nil, nil, jsonParsingError)
             }
@@ -183,7 +184,7 @@ class HttpRequester: BaseHttpRequester {
         
         if(body != nil) {
             do {
-                jsonBody = try self.jsonParser?.serializeJson(fromData: body!)
+                jsonBody = try self.jsonParser.serializeJson(fromData: body!)
             } catch let jsonParsingError {
                 completionHandler(nil, nil, jsonParsingError)
                 return
@@ -203,12 +204,24 @@ class HttpRequester: BaseHttpRequester {
             }
             
             do {
-                let jsonAsDict = try weakSelf?.jsonParser?.deserializeJson(json: responseBody!)
+                let parsedResponse = try weakSelf?.handleJsonDeserialization(responseBody: responseBody, response: response)
                 
-                completionHandler(jsonAsDict, response, nil)
+                completionHandler(parsedResponse, response, nil)
             } catch let jsonParsingError {
                 completionHandler(nil, nil, jsonParsingError)
             }
+        }
+    }
+    
+    func handleJsonDeserialization(responseBody: Data?, response: HTTPURLResponse?) throws -> Any? {
+        if let contentTypeString = response?.allHeaderFields[contentTypeHeaderKeyName] as? String {
+            if(contentTypeString.contains(contentTypeJsonHeaderValue)) {
+                return try self.jsonParser.deserializeJson(json: responseBody!)
+            } else {
+                return responseBody
+            }
+        } else {
+            return nil
         }
     }
 }

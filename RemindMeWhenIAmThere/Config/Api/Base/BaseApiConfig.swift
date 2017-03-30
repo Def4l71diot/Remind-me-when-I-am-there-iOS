@@ -24,11 +24,12 @@ protocol BaseApiConfig {
     var getMyRemindersUrl: String{get}
     var getMyPendingRemindersUrl: String{get}
     
-    
     var apiAuthHeaderKey: String{get}
+    var apiSuccessResponseCode: Int{get}
     var apiErrorResponseCode: Int{get}
     var apiErrorJsonKey: String{get}
     var apiErrorMessageJsonKey: String{get}
+    var apiUnkwonErrorMessage: String{get}
     
     func getSearchUsersUrl(forPartialName partialName: String) -> String
     

@@ -9,23 +9,18 @@
 import Foundation
 
 protocol BaseApiData: class {
-    var httpRequester: BaseHttpRequester?{get set}
-    var apiConfig: BaseApiConfig?{get set}
+    var httpRequester: BaseHttpRequester{get set}
+    var apiConfig: BaseApiConfig{get set}
     
-    init(withHttpRequester httpRequester: BaseHttpRequester, andApiConfig apiConfig: BaseApiConfig)
 }
 
 extension BaseApiData {
-    func initAbstractApiData(withHttpRequester httpRequester: BaseHttpRequester, andApiConfig apiConfig: BaseApiConfig) {
-        self.httpRequester = httpRequester
-        self.apiConfig = apiConfig
-    }
-    
+
     func parseApiErrorMessage(fromJson json: Any?) -> String {
         let jsonDict = json as? Dictionary<String, Any>
-        let errorDictionary = jsonDict?[(self.apiConfig?.apiErrorJsonKey)!] as? Dictionary<String, String>
+        let errorDictionary = jsonDict?[self.apiConfig.apiErrorJsonKey] as? Dictionary<String, String>
         
-        let message = errorDictionary?[(self.apiConfig?.apiErrorMessageJsonKey)!] ?? "An unknown error occurred"
+        let message = errorDictionary?[self.apiConfig.apiErrorMessageJsonKey] ?? "An unknown error occurred"
         
         return message
     }
