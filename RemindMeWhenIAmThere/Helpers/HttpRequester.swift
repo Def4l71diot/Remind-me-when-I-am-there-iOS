@@ -142,6 +142,7 @@ class HttpRequester: BaseHttpRequester {
         { responseBody, response, error in
             if(error != nil) {
                 completionHandler(nil, nil, error)
+                return
             }
             
             do {
@@ -198,6 +199,7 @@ class HttpRequester: BaseHttpRequester {
         { responseBody, response, error in
             if(error != nil) {
                 completionHandler(nil, nil, error)
+                return
             }
             
             do {

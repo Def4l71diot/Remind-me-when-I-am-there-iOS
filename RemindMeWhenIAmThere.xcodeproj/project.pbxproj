@@ -14,10 +14,16 @@
 		04367EBE1E82990B00718595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04367EBC1E82990B00718595 /* LaunchScreen.storyboard */; };
 		046DDDC91E8B02D4000B0669 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DDDC81E8B02D4000B0669 /* JsonParser.swift */; };
 		046DDDCB1E8B079F000B0669 /* BaseJsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DDDCA1E8B079F000B0669 /* BaseJsonParser.swift */; };
+		04827A341E8BC20000251E21 /* BaseApiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04827A331E8BC20000251E21 /* BaseApiData.swift */; };
+		04827A391E8BC33100251E21 /* BaseApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04827A381E8BC33100251E21 /* BaseApiConfig.swift */; };
+		04827A3B1E8BC3D800251E21 /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04827A3A1E8BC3D800251E21 /* ApiConfig.swift */; };
+		04827A3D1E8BE62900251E21 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04827A3C1E8BE62900251E21 /* UsersData.swift */; };
 		049667201E88736D0034C9AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496671F1E88736D0034C9AB /* MainViewController.swift */; };
 		049667231E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667221E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift */; };
 		049667271E8ADAA10034C9AB /* HttpRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667261E8ADAA10034C9AB /* HttpRequester.swift */; };
 		0496672A1E8ADAD00034C9AB /* BaseHttpRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667291E8ADAD00034C9AB /* BaseHttpRequester.swift */; };
+		04FAA3941E8C53B80023CBE3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAA3931E8C53B80023CBE3 /* User.swift */; };
+		04FAA3971E8C54650023CBE3 /* UserDictExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAA3961E8C54650023CBE3 /* UserDictExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +36,16 @@
 		04367EBF1E82990B00718595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		046DDDC81E8B02D4000B0669 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonParser.swift; path = Helpers/JsonParser.swift; sourceTree = "<group>"; };
 		046DDDCA1E8B079F000B0669 /* BaseJsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseJsonParser.swift; path = Helpers/Base/BaseJsonParser.swift; sourceTree = "<group>"; };
+		04827A331E8BC20000251E21 /* BaseApiData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiData.swift; path = Data/Remote/Base/BaseApiData.swift; sourceTree = "<group>"; };
+		04827A381E8BC33100251E21 /* BaseApiConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiConfig.swift; path = Config/Api/Base/BaseApiConfig.swift; sourceTree = "<group>"; };
+		04827A3A1E8BC3D800251E21 /* ApiConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiConfig.swift; path = Config/Api/ApiConfig.swift; sourceTree = "<group>"; };
+		04827A3C1E8BE62900251E21 /* UsersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsersData.swift; path = Data/Remote/UsersData.swift; sourceTree = "<group>"; };
 		0496671F1E88736D0034C9AB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		049667221E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingIndicatorViewExtension.swift; path = ViewControllers/Extensions/LoadingIndicatorViewExtension.swift; sourceTree = "<group>"; };
 		049667261E8ADAA10034C9AB /* HttpRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpRequester.swift; path = Helpers/HttpRequester.swift; sourceTree = "<group>"; };
 		049667291E8ADAD00034C9AB /* BaseHttpRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseHttpRequester.swift; path = Helpers/Base/BaseHttpRequester.swift; sourceTree = "<group>"; };
+		04FAA3931E8C53B80023CBE3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		04FAA3961E8C54650023CBE3 /* UserDictExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDictExtension.swift; path = Models/Extensions/UserDictExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,9 @@
 		04367EAF1E82990A00718595 /* RemindMeWhenIAmThere */ = {
 			isa = PBXGroup;
 			children = (
+				04FAA3921E8C538D0023CBE3 /* Models */,
+				04827A351E8BC2E500251E21 /* Config */,
+				04827A2F1E8BBE6400251E21 /* Data */,
 				049667251E8ADA2E0034C9AB /* Helpers */,
 				049667181E8871FD0034C9AB /* ViewControllers */,
 				04367EB01E82990A00718595 /* AppDelegate.swift */,
@@ -75,6 +90,64 @@
 				04367EB71E82990B00718595 /* RemindMeWhenIAmThere.xcdatamodeld */,
 			);
 			path = RemindMeWhenIAmThere;
+			sourceTree = "<group>";
+		};
+		04827A2F1E8BBE6400251E21 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				04827A311E8BC03600251E21 /* Remote */,
+				04827A301E8BBF3100251E21 /* Local */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		04827A301E8BBF3100251E21 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Local;
+			sourceTree = "<group>";
+		};
+		04827A311E8BC03600251E21 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				04827A321E8BC0EC00251E21 /* Base */,
+				04827A3C1E8BE62900251E21 /* UsersData.swift */,
+			);
+			name = Remote;
+			sourceTree = "<group>";
+		};
+		04827A321E8BC0EC00251E21 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				04827A331E8BC20000251E21 /* BaseApiData.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		04827A351E8BC2E500251E21 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				04827A361E8BC2EB00251E21 /* Api */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		04827A361E8BC2EB00251E21 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				04827A371E8BC30F00251E21 /* Base */,
+				04827A3A1E8BC3D800251E21 /* ApiConfig.swift */,
+			);
+			name = Api;
+			sourceTree = "<group>";
+		};
+		04827A371E8BC30F00251E21 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				04827A381E8BC33100251E21 /* BaseApiConfig.swift */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		049667181E8871FD0034C9AB /* ViewControllers */ = {
@@ -120,6 +193,23 @@
 				046DDDCA1E8B079F000B0669 /* BaseJsonParser.swift */,
 			);
 			name = Base;
+			sourceTree = "<group>";
+		};
+		04FAA3921E8C538D0023CBE3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				04FAA3951E8C53EA0023CBE3 /* Extensions */,
+				04FAA3931E8C53B80023CBE3 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		04FAA3951E8C53EA0023CBE3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04FAA3961E8C54650023CBE3 /* UserDictExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,14 +284,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FAA3941E8C53B80023CBE3 /* User.swift in Sources */,
 				049667201E88736D0034C9AB /* MainViewController.swift in Sources */,
+				04FAA3971E8C54650023CBE3 /* UserDictExtension.swift in Sources */,
 				046DDDCB1E8B079F000B0669 /* BaseJsonParser.swift in Sources */,
+				04827A341E8BC20000251E21 /* BaseApiData.swift in Sources */,
 				0496672A1E8ADAD00034C9AB /* BaseHttpRequester.swift in Sources */,
 				049667231E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift in Sources */,
 				049667271E8ADAA10034C9AB /* HttpRequester.swift in Sources */,
 				04367EB91E82990B00718595 /* RemindMeWhenIAmThere.xcdatamodeld in Sources */,
 				046DDDC91E8B02D4000B0669 /* JsonParser.swift in Sources */,
+				04827A3B1E8BC3D800251E21 /* ApiConfig.swift in Sources */,
 				04367EB11E82990A00718595 /* AppDelegate.swift in Sources */,
+				04827A3D1E8BE62900251E21 /* UsersData.swift in Sources */,
+				04827A391E8BC33100251E21 /* BaseApiConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
