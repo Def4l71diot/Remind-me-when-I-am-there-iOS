@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0421F6431E8DB6FD00A4093C /* BaseUsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421F6421E8DB6FD00A4093C /* BaseUsersData.swift */; };
+		04351ABD1E8E69DF0053A22A /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04351ABC1E8E69DF0053A22A /* Reminder.swift */; };
 		04367EB11E82990A00718595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04367EB01E82990A00718595 /* AppDelegate.swift */; };
 		04367EB61E82990B00718595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04367EB41E82990B00718595 /* Main.storyboard */; };
 		04367EB91E82990B00718595 /* RemindMeWhenIAmThere.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04367EB71E82990B00718595 /* RemindMeWhenIAmThere.xcdatamodeld */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		0421F6421E8DB6FD00A4093C /* BaseUsersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseUsersData.swift; path = Data/Remote/Base/BaseUsersData.swift; sourceTree = "<group>"; };
+		04351ABC1E8E69DF0053A22A /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reminder.swift; path = Models/Reminder.swift; sourceTree = "<group>"; };
 		04367EAD1E82990A00718595 /* RemindMeWhenIAmThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemindMeWhenIAmThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04367EB01E82990A00718595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04367EB51E82990B00718595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				04FAA3981E8D639B0023CBE3 /* Base */,
 				04FAA3951E8C53EA0023CBE3 /* Extensions */,
 				04FAA3931E8C53B80023CBE3 /* User.swift */,
+				04351ABC1E8E69DF0053A22A /* Reminder.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				04827A3B1E8BC3D800251E21 /* ApiConfig.swift in Sources */,
 				0421F6431E8DB6FD00A4093C /* BaseUsersData.swift in Sources */,
 				04367EB11E82990A00718595 /* AppDelegate.swift in Sources */,
+				04351ABD1E8E69DF0053A22A /* Reminder.swift in Sources */,
 				04FAA3A21E8D8CE50023CBE3 /* UserAuthManager.swift in Sources */,
 				04827A3D1E8BE62900251E21 /* UsersData.swift in Sources */,
 				04FAA3A41E8D99BD0023CBE3 /* BaseUserAuthManager.swift in Sources */,
