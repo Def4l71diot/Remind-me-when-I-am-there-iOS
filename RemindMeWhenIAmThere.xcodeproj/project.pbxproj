@@ -25,6 +25,9 @@
 		0493FA1C1E8FB416008BDAAE /* BaseReminderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA1B1E8FB416008BDAAE /* BaseReminderFactory.swift */; };
 		0493FA1F1E8FBB62008BDAAE /* ReminderEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA1E1E8FBB62008BDAAE /* ReminderEntityExtension.swift */; };
 		0493FA221E8FC085008BDAAE /* DateStringConversionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA211E8FC085008BDAAE /* DateStringConversionExtension.swift */; };
+		0493FA251E8FD3D9008BDAAE /* BaseLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA241E8FD3D9008BDAAE /* BaseLocalData.swift */; };
+		0493FA271E8FD8A5008BDAAE /* BaseLocalRemindersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA261E8FD8A5008BDAAE /* BaseLocalRemindersData.swift */; };
+		0493FA291E8FE143008BDAAE /* LocalRemindersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA281E8FE143008BDAAE /* LocalRemindersData.swift */; };
 		049667201E88736D0034C9AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496671F1E88736D0034C9AB /* MainViewController.swift */; };
 		049667231E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667221E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift */; };
 		049667271E8ADAA10034C9AB /* HttpRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667261E8ADAA10034C9AB /* HttpRequester.swift */; };
@@ -59,6 +62,9 @@
 		0493FA1B1E8FB416008BDAAE /* BaseReminderFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseReminderFactory.swift; path = Models/Factories/Base/BaseReminderFactory.swift; sourceTree = "<group>"; };
 		0493FA1E1E8FBB62008BDAAE /* ReminderEntityExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderEntityExtension.swift; path = Models/EntityExtensions/ReminderEntityExtension.swift; sourceTree = "<group>"; };
 		0493FA211E8FC085008BDAAE /* DateStringConversionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateStringConversionExtension.swift; path = Helpers/Extensions/DateStringConversionExtension.swift; sourceTree = "<group>"; };
+		0493FA241E8FD3D9008BDAAE /* BaseLocalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseLocalData.swift; path = Data/Local/Base/BaseLocalData.swift; sourceTree = "<group>"; };
+		0493FA261E8FD8A5008BDAAE /* BaseLocalRemindersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseLocalRemindersData.swift; path = Data/Local/Base/BaseLocalRemindersData.swift; sourceTree = "<group>"; };
+		0493FA281E8FE143008BDAAE /* LocalRemindersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalRemindersData.swift; path = Data/Local/LocalRemindersData.swift; sourceTree = "<group>"; };
 		0496671F1E88736D0034C9AB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		049667221E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingIndicatorViewExtension.swift; path = ViewControllers/Extensions/LoadingIndicatorViewExtension.swift; sourceTree = "<group>"; };
 		049667261E8ADAA10034C9AB /* HttpRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpRequester.swift; path = Helpers/HttpRequester.swift; sourceTree = "<group>"; };
@@ -128,6 +134,8 @@
 		04827A301E8BBF3100251E21 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				0493FA231E8FD39A008BDAAE /* Base */,
+				0493FA281E8FE143008BDAAE /* LocalRemindersData.swift */,
 			);
 			name = Local;
 			sourceTree = "<group>";
@@ -189,6 +197,15 @@
 				0493FA211E8FC085008BDAAE /* DateStringConversionExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		0493FA231E8FD39A008BDAAE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0493FA241E8FD3D9008BDAAE /* BaseLocalData.swift */,
+				0493FA261E8FD8A5008BDAAE /* BaseLocalRemindersData.swift */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		049667181E8871FD0034C9AB /* ViewControllers */ = {
@@ -367,10 +384,12 @@
 				0493FA1F1E8FBB62008BDAAE /* ReminderEntityExtension.swift in Sources */,
 				04FAA39E1E8D69940023CBE3 /* UserFactory.swift in Sources */,
 				048208351E8E88CD004AAF9B /* BaseReminder.swift in Sources */,
+				0493FA251E8FD3D9008BDAAE /* BaseLocalData.swift in Sources */,
 				0493FA221E8FC085008BDAAE /* DateStringConversionExtension.swift in Sources */,
 				046DDDCB1E8B079F000B0669 /* BaseJsonParser.swift in Sources */,
 				04827A341E8BC20000251E21 /* BaseApiData.swift in Sources */,
 				04FAA3A01E8D6C0B0023CBE3 /* BaseUserFactory.swift in Sources */,
+				0493FA271E8FD8A5008BDAAE /* BaseLocalRemindersData.swift in Sources */,
 				0496672A1E8ADAD00034C9AB /* BaseHttpRequester.swift in Sources */,
 				049667231E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift in Sources */,
 				049667271E8ADAA10034C9AB /* HttpRequester.swift in Sources */,
@@ -383,6 +402,7 @@
 				04FAA3A21E8D8CE50023CBE3 /* UserAuthManager.swift in Sources */,
 				04827A3D1E8BE62900251E21 /* UsersData.swift in Sources */,
 				04FAA3A41E8D99BD0023CBE3 /* BaseUserAuthManager.swift in Sources */,
+				0493FA291E8FE143008BDAAE /* LocalRemindersData.swift in Sources */,
 				0493FA1C1E8FB416008BDAAE /* BaseReminderFactory.swift in Sources */,
 				04827A391E8BC33100251E21 /* BaseApiConfig.swift in Sources */,
 				04FAA39A1E8D63B30023CBE3 /* BaseUser.swift in Sources */,
