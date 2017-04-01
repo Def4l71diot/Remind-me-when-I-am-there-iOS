@@ -16,8 +16,8 @@ protocol BaseReminderFactory {
         title: String,
         taskDescription: String,
         date: Date?,
-        longitude: Double,
         latitude: Double,
+        longitude: Double,
         andLocationName locationName: String?,
         isActive: Bool,
         isCompleted: Bool,
@@ -33,8 +33,8 @@ protocol BaseReminderFactory {
     func getLocalReminder(
         withTitle title: String,
         taskDescription: String,
-        longitude: Double,
         latitude: Double,
+        longitude: Double,
         andLocationName locationName: String) -> BaseReminder
     
     func getRemoteReminder(
@@ -46,8 +46,8 @@ protocol BaseReminderFactory {
     func getRemoteReminder(
         withTitle title: String,
         taskDescription: String,
-        longitude: Double,
         latitude: Double,
+        longitude: Double,
         andLocationName locationName: String,
         forUser user: String) -> BaseReminder
 }

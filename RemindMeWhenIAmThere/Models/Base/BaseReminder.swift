@@ -21,8 +21,8 @@ protocol BaseReminder: class {
     var toUser: String?{get set}
     var date: Date?{get set}
     
-    var longitude: Double{get set}
     var latitude: Double{get set}
+    var longitude: Double{get set}
     var locationName: String?{get set}
     
     init(
@@ -30,8 +30,8 @@ protocol BaseReminder: class {
         title: String,
         taskDescription: String,
         date: Date?,
-        longitude: Double,
         latitude: Double,
+        longitude: Double,
         andLocationName locationName: String?,
         isActive: Bool,
         isCompleted: Bool,
