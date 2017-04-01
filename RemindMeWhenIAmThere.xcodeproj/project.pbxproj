@@ -29,6 +29,7 @@
 		0493FA271E8FD8A5008BDAAE /* BaseLocalRemindersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA261E8FD8A5008BDAAE /* BaseLocalRemindersData.swift */; };
 		0493FA291E8FE143008BDAAE /* LocalRemindersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA281E8FE143008BDAAE /* LocalRemindersData.swift */; };
 		0493FA2B1E900847008BDAAE /* ReminderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA2A1E900847008BDAAE /* ReminderFactory.swift */; };
+		0493FA2D1E9062C0008BDAAE /* ActiveRemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA2C1E9062C0008BDAAE /* ActiveRemindersTableViewController.swift */; };
 		049667201E88736D0034C9AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496671F1E88736D0034C9AB /* MainViewController.swift */; };
 		049667231E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667221E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift */; };
 		049667271E8ADAA10034C9AB /* HttpRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667261E8ADAA10034C9AB /* HttpRequester.swift */; };
@@ -67,6 +68,7 @@
 		0493FA261E8FD8A5008BDAAE /* BaseLocalRemindersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseLocalRemindersData.swift; path = Data/Local/Base/BaseLocalRemindersData.swift; sourceTree = "<group>"; };
 		0493FA281E8FE143008BDAAE /* LocalRemindersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalRemindersData.swift; path = Data/Local/LocalRemindersData.swift; sourceTree = "<group>"; };
 		0493FA2A1E900847008BDAAE /* ReminderFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderFactory.swift; path = Models/Factories/ReminderFactory.swift; sourceTree = "<group>"; };
+		0493FA2C1E9062C0008BDAAE /* ActiveRemindersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActiveRemindersTableViewController.swift; path = ViewControllers/ActiveRemindersTableViewController.swift; sourceTree = "<group>"; };
 		0496671F1E88736D0034C9AB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		049667221E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingIndicatorViewExtension.swift; path = ViewControllers/Extensions/LoadingIndicatorViewExtension.swift; sourceTree = "<group>"; };
 		049667261E8ADAA10034C9AB /* HttpRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpRequester.swift; path = Helpers/HttpRequester.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			children = (
 				049667211E8873960034C9AB /* Extensions */,
 				0496671F1E88736D0034C9AB /* MainViewController.swift */,
+				0493FA2C1E9062C0008BDAAE /* ActiveRemindersTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				0496672A1E8ADAD00034C9AB /* BaseHttpRequester.swift in Sources */,
 				049667231E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift in Sources */,
 				049667271E8ADAA10034C9AB /* HttpRequester.swift in Sources */,
+				0493FA2D1E9062C0008BDAAE /* ActiveRemindersTableViewController.swift in Sources */,
 				04367EB91E82990B00718595 /* RemindMeWhenIAmThere.xcdatamodeld in Sources */,
 				046DDDC91E8B02D4000B0669 /* JsonParser.swift in Sources */,
 				04827A3B1E8BC3D800251E21 /* ApiConfig.swift in Sources */,
