@@ -28,6 +28,7 @@
 		0493FA251E8FD3D9008BDAAE /* BaseLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA241E8FD3D9008BDAAE /* BaseLocalData.swift */; };
 		0493FA271E8FD8A5008BDAAE /* BaseLocalRemindersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA261E8FD8A5008BDAAE /* BaseLocalRemindersData.swift */; };
 		0493FA291E8FE143008BDAAE /* LocalRemindersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA281E8FE143008BDAAE /* LocalRemindersData.swift */; };
+		0493FA2B1E900847008BDAAE /* ReminderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA2A1E900847008BDAAE /* ReminderFactory.swift */; };
 		049667201E88736D0034C9AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496671F1E88736D0034C9AB /* MainViewController.swift */; };
 		049667231E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667221E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift */; };
 		049667271E8ADAA10034C9AB /* HttpRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667261E8ADAA10034C9AB /* HttpRequester.swift */; };
@@ -65,6 +66,7 @@
 		0493FA241E8FD3D9008BDAAE /* BaseLocalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseLocalData.swift; path = Data/Local/Base/BaseLocalData.swift; sourceTree = "<group>"; };
 		0493FA261E8FD8A5008BDAAE /* BaseLocalRemindersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseLocalRemindersData.swift; path = Data/Local/Base/BaseLocalRemindersData.swift; sourceTree = "<group>"; };
 		0493FA281E8FE143008BDAAE /* LocalRemindersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalRemindersData.swift; path = Data/Local/LocalRemindersData.swift; sourceTree = "<group>"; };
+		0493FA2A1E900847008BDAAE /* ReminderFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderFactory.swift; path = Models/Factories/ReminderFactory.swift; sourceTree = "<group>"; };
 		0496671F1E88736D0034C9AB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		049667221E8873DF0034C9AB /* LoadingIndicatorViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingIndicatorViewExtension.swift; path = ViewControllers/Extensions/LoadingIndicatorViewExtension.swift; sourceTree = "<group>"; };
 		049667261E8ADAA10034C9AB /* HttpRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpRequester.swift; path = Helpers/HttpRequester.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				04FAA39C1E8D68FE0023CBE3 /* Base */,
 				04FAA39D1E8D69940023CBE3 /* UserFactory.swift */,
+				0493FA2A1E900847008BDAAE /* ReminderFactory.swift */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				04827A3D1E8BE62900251E21 /* UsersData.swift in Sources */,
 				04FAA3A41E8D99BD0023CBE3 /* BaseUserAuthManager.swift in Sources */,
 				0493FA291E8FE143008BDAAE /* LocalRemindersData.swift in Sources */,
+				0493FA2B1E900847008BDAAE /* ReminderFactory.swift in Sources */,
 				0493FA1C1E8FB416008BDAAE /* BaseReminderFactory.swift in Sources */,
 				04827A391E8BC33100251E21 /* BaseApiConfig.swift in Sources */,
 				04FAA39A1E8D63B30023CBE3 /* BaseUser.swift in Sources */,

@@ -62,22 +62,20 @@ extension ReminderEntity {
         
     }
     
-    func toBaseReminder() -> BaseReminder {
-        let reminder =
-            Reminder(
-                withId: self.objectID,
-                title: self.title!,
-                taskDescription: self.taskDecription!,
-                date: self.dateString?.getAsDate(),
-                latitude: self.latitude,
-                longitude: self.longitude,
-                andLocationName: self.locationName,
-                isActive: self.isActive,
-                isCompleted: self.isCompleted,
-                remoteId: self.remoteId,
-                fromUser: self.fromUser,
-                toUser: nil)
-        
-        return reminder
+    func toBaseReminder(fromReminderFactory reminderFactory: BaseReminderFactory) -> BaseReminder {
+        return reminderFactory
+                .getReminder(
+                    withId: self.objectID,
+                    title: self.title!,
+                    taskDescription: self.taskDecription!,
+                    date: self.dateString?.getAsDate(),
+                    latitude: self.latitude,
+                    longitude: self.longitude,
+                    andLocationName: self.locationName,
+                    isActive: self.isActive,
+                    isCompleted: self.isCompleted,
+                    remoteId: self.remoteId,
+                    fromUser: self.fromUser,
+                    toUser: nil)
     }
 }

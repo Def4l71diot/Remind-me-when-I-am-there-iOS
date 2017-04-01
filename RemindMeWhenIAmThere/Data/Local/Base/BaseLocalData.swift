@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 protocol BaseLocalData {
+    
     associatedtype T
     associatedtype EntityClass
     
@@ -24,9 +25,9 @@ protocol BaseLocalData {
     
     func getAll() -> [T]
     
-    func getById(id: NSManagedObjectID) -> T
+    func getById(id: NSManagedObjectID) -> T?
     
-    func getByIdAsEntity(id: NSManagedObjectID) -> EntityClass
+    func getByIdAsEntity(id: NSManagedObjectID) -> EntityClass?
 }
 
 extension BaseLocalData {
@@ -37,5 +38,25 @@ extension BaseLocalData {
         } catch {
             return false
         }
+    }
+    
+    func getAndQuery() -> String {
+        return " AND "
+    }
+    
+    func getOrQuery() -> String {
+        return " || "
+    }
+    
+    func getEqualsTrueQuery(forField field: String) -> String {
+        return "\(field) == \(NSNumber(booleanLiteral: true))"
+    }
+    
+    func getEqualsFalseQuery(forField field: String) -> String {
+        return "\(field) == \(NSNumber(booleanLiteral: false))"
+    }
+    
+    func getEqualsNilQuery(forField field: String) -> String {
+        return "\(field) = nil"
     }
 }

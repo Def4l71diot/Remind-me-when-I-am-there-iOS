@@ -13,10 +13,15 @@ class LocalRemindersData: BaseLocalRemindersData {
     let reminderEntityName = "Reminders"
     var dbContext: NSManagedObjectContext
     var entity: NSEntityDescription
+    var reminderFactory: BaseReminderFactory
     
-    init(withDbContext dbContext: NSManagedObjectContext) {
+    init(
+        withDbContext dbContext: NSManagedObjectContext,
+        andReminderFactory reminderFactory: BaseReminderFactory) {
+        
         self.dbContext = dbContext
         self.entity = NSEntityDescription.entity(forEntityName: reminderEntityName, in: dbContext)!
+        self.reminderFactory = reminderFactory
     }
     
     func add(_ object: BaseReminder) -> Bool {
@@ -32,9 +37,11 @@ class LocalRemindersData: BaseLocalRemindersData {
     }
     
     func update(_ object: BaseReminder) -> Bool {
-        let reminderToUpdate = self.getByIdAsEntity(id: object.id!)
-        reminderToUpdate.changeValues(toMatchReminder: object)
-        return self.saveChanges()
+        if let reminderToUpdate = self.getByIdAsEntity(id: object.id!) {
+            reminderToUpdate.changeValues(toMatchReminder: object)
+            return self.saveChanges()
+        }
+        return false
     }
     
     func get(withPredicate queryPredicate: NSPredicate?) -> [BaseReminder] {
@@ -43,7 +50,7 @@ class LocalRemindersData: BaseLocalRemindersData {
         
         do {
             let response = try self.dbContext.fetch(fetchRequest)
-            let reminders = response.map(){$0.toBaseReminder()}
+            let reminders = response.map(){$0.toBaseReminder(fromReminderFactory: self.reminderFactory)}
             return reminders
         } catch {
             return []
@@ -55,11 +62,31 @@ class LocalRemindersData: BaseLocalRemindersData {
         return self.get(withPredicate: nil)
     }
     
-    func getByIdAsEntity(id: NSManagedObjectID) -> ReminderEntity {
-        return self.dbContext.object(with: id) as! EntityClass
+    func getByIdAsEntity(id: NSManagedObjectID) -> ReminderEntity? {
+        return self.dbContext.object(with: id) as? EntityClass
     }
     
-    func getById(id: NSManagedObjectID) -> BaseReminder {
-        return self.getByIdAsEntity(id: id).toBaseReminder()
+    func getById(id: NSManagedObjectID) -> BaseReminder? {
+        return self.getByIdAsEntity(id: id)?.toBaseReminder(fromReminderFactory: self.reminderFactory)
+    }
+    
+    func getActiveReminders() -> [BaseReminder] {
+        let isActiveQuery = self.getEqualsTrueQuery(forField: #keyPath(EntityClass.isActive))
+        let isNotCompletedQuery = self.getEqualsFalseQuery(forField: #keyPath(EntityClass.isCompleted))
+        let isActiveReminderQuery = "(\(isActiveQuery))\(self.getAndQuery())(\(isNotCompletedQuery))"
+        let isActiveReminderPredicate = NSPredicate(format: isActiveReminderQuery)
+        
+        return self.get(withPredicate: isActiveReminderPredicate)
+    }
+    
+    func getActiveGeoReminders() -> [BaseReminder] {
+        let isActiveQuery = self.getEqualsTrueQuery(forField: #keyPath(EntityClass.isActive))
+        let isNotCompletedQuery = self.getEqualsFalseQuery(forField: #keyPath(EntityClass.isCompleted))
+        let isActiveReminderQuery = "(\(isActiveQuery))\(self.getAndQuery())(\(isNotCompletedQuery))"
+        
+        let isGeoReminderQuery = self.getEqualsNilQuery(forField: #keyPath(EntityClass.dateString))
+        let isActiveGeoReminderQuery = "\(isActiveReminderQuery)\(self.getAndQuery())(\(isGeoReminderQuery))"
+        let isActiveGeoReminderPredicate = NSPredicate(format: isActiveGeoReminderQuery)
+        return self.get(withPredicate: isActiveGeoReminderPredicate)
     }
 }

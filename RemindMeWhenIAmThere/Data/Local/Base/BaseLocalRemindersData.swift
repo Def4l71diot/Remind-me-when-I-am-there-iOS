@@ -12,4 +12,10 @@ import CoreData
 protocol BaseLocalRemindersData: BaseLocalData {
     typealias T = BaseReminder
     typealias EntityClass = ReminderEntity
+    
+    var reminderFactory: BaseReminderFactory{get set}
+    
+    func getActiveReminders() -> [BaseReminder]
+    
+    func getActiveGeoReminders() -> [BaseReminder]
 }
