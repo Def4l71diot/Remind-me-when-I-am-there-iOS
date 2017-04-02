@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hyv-WU-EMW">
@@ -61,7 +61,6 @@
                     <constraint firstItem="i19-mb-Blc" firstAttribute="leading" secondItem="Hyv-WU-EMW" secondAttribute="trailing" constant="16" id="B9z-qi-jH5"/>
                     <constraint firstItem="nuT-g8-dPK" firstAttribute="leading" secondItem="i19-mb-Blc" secondAttribute="trailing" constant="20" id="F47-tU-Sm6"/>
                     <constraint firstAttribute="bottomMargin" secondItem="nuT-g8-dPK" secondAttribute="bottom" constant="48" id="FNW-pt-TVM"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="yaI-fg-USy" secondAttribute="bottom" constant="-1" id="G3X-iR-nVv"/>
                     <constraint firstItem="Gau-mu-gvx" firstAttribute="trailing" secondItem="yaI-fg-USy" secondAttribute="trailing" id="Hzm-Y0-ilM"/>
                     <constraint firstAttribute="trailingMargin" secondItem="nuT-g8-dPK" secondAttribute="trailing" constant="-9" id="KRE-ja-VAp"/>
                     <constraint firstItem="yaI-fg-USy" firstAttribute="top" secondItem="Gau-mu-gvx" secondAttribute="bottom" constant="1" id="Mem-KT-4bG"/>
