@@ -50,4 +50,10 @@ extension UIViewController {
     func showErrorMessage(message: String) {
         self.display(message: message, withTitle: "Error")
     }
+    
+    func animateSetView(view: UIView, hidden: Bool) {
+        UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: { _ in
+            view.isHidden = hidden
+        }, completion: nil)
+    }
 }
