@@ -60,18 +60,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any tasks! 😱😱😱 One is created by clicking the &quot;+&quot;  ↗️" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGr-0e-ZNV">
+                                <rect key="frame" x="0.0" y="157" width="375" height="108"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
+                                <color key="textColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uBi-dA-2JK" secondAttribute="trailing" id="0Mt-7A-iLn"/>
                             <constraint firstItem="uBi-dA-2JK" firstAttribute="top" secondItem="Bgf-qN-MCC" secondAttribute="top" id="BlH-lH-LZR"/>
+                            <constraint firstItem="dfF-o0-nEM" firstAttribute="top" secondItem="UGr-0e-ZNV" secondAttribute="bottom" constant="353" id="Ld8-yc-ozU"/>
                             <constraint firstItem="uBi-dA-2JK" firstAttribute="leading" secondItem="Bgf-qN-MCC" secondAttribute="leading" id="ND1-qn-xiY"/>
+                            <constraint firstItem="UGr-0e-ZNV" firstAttribute="leading" secondItem="uBi-dA-2JK" secondAttribute="leading" id="RLK-Ac-Zm4"/>
                             <constraint firstItem="uBi-dA-2JK" firstAttribute="bottom" secondItem="dfF-o0-nEM" secondAttribute="top" id="csA-HW-lbB"/>
+                            <constraint firstItem="UGr-0e-ZNV" firstAttribute="trailing" secondItem="uBi-dA-2JK" secondAttribute="trailing" id="qh2-Jq-fxK"/>
+                            <constraint firstItem="UGr-0e-ZNV" firstAttribute="top" secondItem="Lbw-Qr-UEg" secondAttribute="bottom" constant="93" id="xas-He-vtq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Reminders" image="Bell-50" id="gpv-kF-Z4v"/>
                     <connections>
+                        <outlet property="noRemindersLabel" destination="UGr-0e-ZNV" id="cOk-2t-s07"/>
                         <outlet property="remindersTableView" destination="uBi-dA-2JK" id="kQI-qk-Kzu"/>
                     </connections>
                 </viewController>

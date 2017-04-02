@@ -6,5 +6,7 @@ target 'RemindMeWhenIAmThere' do
   use_frameworks!
 
   # Pods for RemindMeWhenIAmThere
+  pod 'Swinject', '~> 2.0.0'
+  pod 'SwinjectStoryboard', '~> 1.0.0'
 
 end

@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 class LocalRemindersData: BaseLocalRemindersData {
+    typealias EntityClass = ReminderEntity
     let reminderEntityName = "Reminders"
     var dbContext: NSManagedObjectContext
     var entity: NSEntityDescription
@@ -62,7 +63,7 @@ class LocalRemindersData: BaseLocalRemindersData {
         return self.get(withPredicate: nil)
     }
     
-    func getByIdAsEntity(id: NSManagedObjectID) -> ReminderEntity? {
+    func getByIdAsEntity(id: NSManagedObjectID) -> EntityClass? {
         return self.dbContext.object(with: id) as? EntityClass
     }
     

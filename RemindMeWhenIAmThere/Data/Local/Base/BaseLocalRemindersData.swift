@@ -10,10 +10,20 @@ import Foundation
 import CoreData
 
 protocol BaseLocalRemindersData: BaseLocalData {
-    typealias T = BaseReminder
-    typealias EntityClass = ReminderEntity
     
     var reminderFactory: BaseReminderFactory{get set}
+    
+    func add(_ object: BaseReminder) -> Bool
+    
+    func update(_ object: BaseReminder) -> Bool
+    
+    func get(withPredicate queryPredicate: NSPredicate?) -> [BaseReminder]
+    
+    func getAll() -> [BaseReminder]
+    
+    func getById(id: NSManagedObjectID) -> BaseReminder?
+    
+    func getByIdAsEntity(id: NSManagedObjectID) -> ReminderEntity?
     
     func getActiveReminders() -> [BaseReminder]
     

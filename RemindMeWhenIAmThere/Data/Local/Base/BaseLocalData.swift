@@ -11,23 +11,9 @@ import CoreData
 
 protocol BaseLocalData {
     
-    associatedtype T
-    associatedtype EntityClass
-    
     var dbContext: NSManagedObjectContext{get}
     var entity: NSEntityDescription{get}
-    
-    func add(_ object: T) -> Bool
-    
-    func update(_ object: T) -> Bool
-    
-    func get(withPredicate queryPredicate: NSPredicate?) -> [T]
-    
-    func getAll() -> [T]
-    
-    func getById(id: NSManagedObjectID) -> T?
-    
-    func getByIdAsEntity(id: NSManagedObjectID) -> EntityClass?
+
 }
 
 extension BaseLocalData {

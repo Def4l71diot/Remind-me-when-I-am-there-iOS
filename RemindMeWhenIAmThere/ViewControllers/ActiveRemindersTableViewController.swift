@@ -8,56 +8,104 @@
 
 import UIKit
 
-class ActiveRemindersTableViewController: UIViewController, UITableViewDataSource {
+class ActiveRemindersTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    let reminderCellNibName = "ReminderTableViewCell"
     let reminderCellIdentifier = "reminder-cell"
-    
+    let reminderSectionsCount = 1
+    let cellToTableViewScaleCoef: CGFloat = 6
+
+    @IBOutlet weak var noRemindersLabel: UILabel!
     @IBOutlet weak var remindersTableView: UITableView!
-    
     let refreshControl = UIRefreshControl()
+    
+    var localRemindersData: BaseLocalRemindersData?
+    var activeReminders: [BaseReminder] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshControl.addTarget(self, action: #selector(refreshReminders), for: UIControlEvents.valueChanged)
-        remindersTableView.dataSource = self
-        remindersTableView.addSubview(self.refreshControl)
-        
-        self.remindersTableView.register(UITableViewCell.self, forCellReuseIdentifier: reminderCellIdentifier)
+        self.setupTableView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadReminders()
+    }
+    
+    func setupTableView() {
+        self.refreshControl.addTarget(self, action: #selector(loadReminders), for: UIControlEvents.valueChanged)
+        self.remindersTableView.dataSource = self
+        self.remindersTableView.delegate = self
+        self.remindersTableView.addSubview(self.refreshControl)
+        self.remindersTableView.rowHeight = self.remindersTableView.frame.height / cellToTableViewScaleCoef
+        self.remindersTableView.register(UINib(nibName: reminderCellNibName, bundle: nil), forCellReuseIdentifier: reminderCellIdentifier)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return reminderSectionsCount
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.activeReminders.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.remindersTableView.dequeueReusableCell(withIdentifier: reminderCellIdentifier) as! ReminderTableViewCell
+        let reminder = activeReminders[indexPath.row]
+        cell.title.text = reminder.title
+        cell.taskDescription.text = reminder.taskDescription
+        cell.additionalInfo.text = reminder.date?.getLocalDateString() ?? reminder.locationName ?? ""
+        
+        if(reminder.date != nil) {
+            cell.reminderIcon.image = #imageLiteral(resourceName: "Reminder-Date-100")
+        } else {
+            cell.reminderIcon.image = #imageLiteral(resourceName: "Reminder-Location-100")
+        }
+        
+        if(reminder.fromUser != nil) {
+            cell.fromUser.text = reminder.fromUser
+            cell.fromUser.isHidden = false
+        } else {
+            cell.fromUser.isHidden = true
+        }
+        
+        return cell
+    }
+    
+    func loadReminders() {
+        if(!self.refreshControl.isRefreshing) {
+            self.refreshControl.beginRefreshing()
+        }
+        
 
+        self.activeReminders = self.localRemindersData?.getActiveReminders() ?? []
+
+        self.remindersTableView.reloadData()
+        self.refreshControl.endRefreshing()
+        
+        self.checkRemindersCount()
+    }
+    
+    func checkRemindersCount() {
+        if(self.activeReminders.isEmpty) {
+            self.noRemindersLabel.isHidden = false
+            self.remindersTableView.separatorStyle = .none
+        } else {
+            self.noRemindersLabel.isHidden = true
+            self.remindersTableView.separatorStyle = .singleLine
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.remindersTableView.dequeueReusableCell(withIdentifier: reminderCellIdentifier)!
-        cell.textLabel?.text = "Reminder \(indexPath.row)"
-        return cell
-    }
-    
-    func refreshReminders() {
-        let timeout = DispatchTime.now() + .seconds(5)
-        weak var weakSelf = self
-        DispatchQueue.main.asyncAfter(deadline: timeout) {
-            weakSelf?.refreshControl.endRefreshing()
-        }
-    }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
