@@ -1,5 +1,6 @@
 PODS:
   - DateTimePicker (1.0.3)
+  - LocationPicker (1.0.2)
   - SearchTextField (1.1.0)
   - Swinject (2.0.0)
   - SwinjectStoryboard (1.0.0):
@@ -7,16 +8,18 @@ PODS:
 
 DEPENDENCIES:
   - DateTimePicker
+  - LocationPicker
   - SearchTextField
   - Swinject (~> 2.0.0)
   - SwinjectStoryboard (~> 1.0.0)
 
 SPEC CHECKSUMS:
   DateTimePicker: 23ca73cee22ff485e9e2fbfa4e4082845ce65e95
+  LocationPicker: 240b6328b8d7799530cc0da9973ea3f02dc646f4
   SearchTextField: 5daab6cecfd90e06f9b08b2814593656c0c99f3d
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
   SwinjectStoryboard: 8e0d3c0202b64172bdf915d55e8dc83d9c4e7863
 
-PODFILE CHECKSUM: 5ddff95667101bd31e68236b0a663b19cf27a8e7
+PODFILE CHECKSUM: 219c774df7eead4e2e11d4149cc461f2e6e5d1f4
 
 COCOAPODS: 1.2.0

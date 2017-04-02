@@ -14,6 +14,7 @@
 		0405EA1B1E908986004134F0 /* ViewControllersDiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405EA1A1E908986004134F0 /* ViewControllersDiConfig.swift */; };
 		0405EA201E909F34004134F0 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405EA1E1E909F34004134F0 /* ReminderTableViewCell.swift */; };
 		0405EA211E909F34004134F0 /* ReminderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0405EA1F1E909F34004134F0 /* ReminderTableViewCell.xib */; };
+		041DEB8A1E914B7E0007E88D /* KeyboardAdaptorViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041DEB891E914B7E0007E88D /* KeyboardAdaptorViewExtension.swift */; };
 		0421F6431E8DB6FD00A4093C /* BaseUsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421F6421E8DB6FD00A4093C /* BaseUsersData.swift */; };
 		04351ABD1E8E69DF0053A22A /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04351ABC1E8E69DF0053A22A /* Reminder.swift */; };
 		04367EB11E82990A00718595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04367EB01E82990A00718595 /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		0405EA1A1E908986004134F0 /* ViewControllersDiConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllersDiConfig.swift; path = Config/Di/ViewControllersDiConfig.swift; sourceTree = "<group>"; };
 		0405EA1E1E909F34004134F0 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderTableViewCell.swift; path = CustomViews/ReminderTableViewCell/ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		0405EA1F1E909F34004134F0 /* ReminderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReminderTableViewCell.xib; path = CustomViews/ReminderTableViewCell/ReminderTableViewCell.xib; sourceTree = "<group>"; };
+		041DEB891E914B7E0007E88D /* KeyboardAdaptorViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardAdaptorViewExtension.swift; path = ViewControllers/Extensions/KeyboardAdaptorViewExtension.swift; sourceTree = "<group>"; };
 		0421F6421E8DB6FD00A4093C /* BaseUsersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseUsersData.swift; path = Data/Remote/Base/BaseUsersData.swift; sourceTree = "<group>"; };
 		04351ABC1E8E69DF0053A22A /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reminder.swift; path = Models/Reminder.swift; sourceTree = "<group>"; };
 		04367EAD1E82990A00718595 /* RemindMeWhenIAmThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemindMeWhenIAmThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				049667221E8873DF0034C9AB /* AnimationViewExtensions.swift */,
+				041DEB891E914B7E0007E88D /* KeyboardAdaptorViewExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				0493FA1F1E8FBB62008BDAAE /* ReminderEntityExtension.swift in Sources */,
 				04FAA39E1E8D69940023CBE3 /* UserFactory.swift in Sources */,
 				048208351E8E88CD004AAF9B /* BaseReminder.swift in Sources */,
+				041DEB8A1E914B7E0007E88D /* KeyboardAdaptorViewExtension.swift in Sources */,
 				0493FA251E8FD3D9008BDAAE /* BaseLocalData.swift in Sources */,
 				0405EA201E909F34004134F0 /* ReminderTableViewCell.swift in Sources */,
 				0493FA221E8FC085008BDAAE /* DateStringConversionExtension.swift in Sources */,

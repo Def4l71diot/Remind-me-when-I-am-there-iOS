@@ -153,4 +153,34 @@ class UsersData: BaseUsersData, BaseApiData {
         }
         
     }
+    
+    func getBuddies(withAuthToken authToken: String, completionHandler: @escaping ([String], String?) -> Void) {
+        let myBuddiesUrl = apiConfig.getMyBuddiesUrl
+        let apiAuthHeaderKey = self.apiConfig.apiAuthHeaderKey
+        let headers = [
+            apiAuthHeaderKey : authToken
+        ]
+        
+        weak var weakSelf = self
+        
+        self.httpRequester.getJson(
+            toUrl: myBuddiesUrl,
+            withHeaders: headers)
+        { responseBody, response, error in
+            if(error != nil) {
+                completionHandler([], error?.localizedDescription)
+                return
+            }
+            
+            if((response?.statusCode)! >= (weakSelf?.apiConfig.apiErrorResponseCode)!) {
+                let errorMessage = weakSelf?.parseApiErrorMessage(fromJson: responseBody)
+                completionHandler([], errorMessage)
+                return
+            }
+            
+            let buddyUsernames = responseBody as? [String] ?? []
+            completionHandler(buddyUsernames, nil)
+            
+        }
+    }
 }

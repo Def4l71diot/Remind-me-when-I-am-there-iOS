@@ -9,13 +9,29 @@
 import Foundation
 import Swinject
 import SwinjectStoryboard
+import LocationPicker
 
 class ViewControllersDiConfig {
     public static func setup(_ container: Container) {
+        
         container.storyboardInitCompleted(ActiveRemindersTableViewController.self)
         { resolver, controller in
             let localRemindersData = resolver.resolve(BaseLocalRemindersData.self)!
             controller.localRemindersData = localRemindersData
+        }
+        
+        container.storyboardInitCompleted(AddReminderViewController.self)
+        { resolver, controller in
+            let localRemindersData = resolver.resolve(BaseLocalRemindersData.self)!
+            let reminderFactory = resolver.resolve(BaseReminderFactory.self)!
+            let userAuthManager = resolver.resolve(BaseUserAuthManager.self)!
+            let usersData = resolver.resolve(BaseUsersData.self)!
+            
+            controller.localRemindersData = localRemindersData
+            controller.reminderFactory = reminderFactory
+            controller.userAuthManager = userAuthManager
+            controller.usersData = usersData
+            
         }
     }
 }

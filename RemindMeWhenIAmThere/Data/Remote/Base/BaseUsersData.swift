@@ -20,4 +20,6 @@ protocol BaseUsersData {
         withNameContaining partialName: String,
         authToken: String,
         completionHandler: @escaping ([BaseUser], String?) -> Void)
+    
+     func getBuddies(withAuthToken authToken: String, completionHandler: @escaping ([String], String?) -> Void)
 }
