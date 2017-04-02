@@ -8,5 +8,7 @@ target 'RemindMeWhenIAmThere' do
   # Pods for RemindMeWhenIAmThere
   pod 'Swinject', '~> 2.0.0'
   pod 'SwinjectStoryboard', '~> 1.0.0'
-
+  pod "SearchTextField"
+  pod 'DateTimePicker'
+  pod 'LocationPicker'
 end
