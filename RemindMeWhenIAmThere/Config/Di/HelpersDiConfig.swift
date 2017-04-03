@@ -26,5 +26,7 @@ class HelpersDiConfig {
             let userAuthManager = UserAuthManager(withUserFactory: userFactory)
             return userAuthManager
         }.inObjectScope(.container)
+        
+        container.register(BaseScheduler.self) {_ in Scheduler()}.inObjectScope(.container)
     }
 }
