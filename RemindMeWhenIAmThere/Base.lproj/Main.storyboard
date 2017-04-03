@@ -86,7 +86,6 @@
         <!--Create Reminder-->
         <scene sceneID="oMn-qQ-Jq9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L3T-OW-LRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController hidesBottomBarWhenPushed="YES" id="jQ7-ej-4va" customClass="AddReminderViewController" customModule="RemindMeWhenIAmThere" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rgu-xJ-Dmg"/>
@@ -206,7 +205,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create Reminder" id="k40-6s-Ck1">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="hbM-aE-022"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="hbM-aE-022">
+                            <connections>
+                                <action selector="createReminder:" destination="jQ7-ej-4va" id="pCy-qY-qhZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="buddyName" destination="bCT-qA-4bR" id="hFJ-FR-olj"/>
@@ -218,6 +221,7 @@
                         <outlet property="reminderTitle" destination="0wb-Y3-7xT" id="QyR-ry-vDt"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L3T-OW-LRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1829.5999999999999" y="-488.00599700149928"/>
         </scene>

@@ -13,6 +13,12 @@ import DateTimePicker
 import CoreLocation
 
 class AddReminderViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+    let invalidTitleMessage = "The title must not be empty!"
+    let invalidDescriptionMessage = "The description must not be empty!"
+    let invalidDateMessage = "The date for the reminder is not set!"
+    let invalidLocationMessage = "You have not set the location for the reminder!"
+    let invalidLocationNameMessage = "You must not leave the location name empty!"
+    let invalidReceiverMessage = "Please enter your buddy's username!"
     let saveLocalReminderButtonName = "Save"
     let sendReminderToBuddyButtonName = "Send"
     let enterLocationNameString = "Please enter a location name!"
@@ -85,7 +91,104 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UITextVi
         self.buddyName.highlightAttributes = [
             NSBackgroundColorAttributeName: UIColor(red:0.95, green:0.35, blue:0.14, alpha:1.0),
             NSFontAttributeName: UIFont.boldSystemFont(ofSize: 12)]
-
+        
+    }
+    
+    @IBAction func createReminder(_ sender: Any) {
+        
+        self.showLoadingIndicator()
+        
+        let reminderTitle = self.reminderTitle?.text
+        let reminderTaskDescription = self.reminderTaskDescription?.text
+        let buddyName = self.buddyName.text
+        
+        guard reminderTitle != nil, !(reminderTitle?.isEmpty)! else {
+            self.hideLoadingIndicator()
+            self.showErrorMessage(message: invalidTitleMessage)
+            return
+        }
+        
+        guard reminderTaskDescription != nil, !(reminderTaskDescription?.isEmpty)! else {
+            self.hideLoadingIndicator()
+            self.showErrorMessage(message: invalidDescriptionMessage)
+            return
+        }
+        
+        if(self.forLocationSwitch.isOn) {
+            guard self.reminderLocation != nil else {
+                self.hideLoadingIndicator()
+                self.showErrorMessage(message: invalidLocationMessage)
+                return
+            }
+            
+            guard self.reminderLocationName != nil, !(self.reminderLocationName?.isEmpty)! else {
+                self.hideLoadingIndicator()
+                self.showErrorMessage(message: invalidLocationNameMessage)
+                return
+            }
+        } else {
+            guard self.reminderDate != nil else {
+                self.hideLoadingIndicator()
+                self.showErrorMessage(message: invalidDateMessage)
+                return
+            }
+        }
+        
+        var reminderToCreate: BaseReminder
+        
+        if(self.forBuddySwitch.isOn) {
+            guard buddyName != nil, !(buddyName?.isEmpty)! else {
+                self.hideLoadingIndicator()
+                self.showErrorMessage(message: invalidReceiverMessage)
+                return
+            }
+            
+            if(self.forLocationSwitch.isOn) {
+                reminderToCreate =
+                    (self.reminderFactory?
+                        .getRemoteReminder(
+                            withTitle: reminderTitle!,
+                            taskDescription: reminderTaskDescription!,
+                            latitude: (reminderLocation?.coordinate.latitude)!,
+                            longitude: (reminderLocation?.coordinate.longitude)!,
+                            andLocationName: reminderLocationName!,
+                            forUser: buddyName!))!
+            } else {
+                reminderToCreate =
+                    (self.reminderFactory?
+                        .getRemoteReminder(
+                            withTitle: reminderTitle!,
+                            andTaskDescription: reminderTaskDescription!,
+                            forDate: reminderDate!,
+                            forUser: buddyName!))!
+            }
+            
+        } else {
+            if(self.forLocationSwitch.isOn) {
+                reminderToCreate =
+                    (self.reminderFactory?
+                        .getLocalReminder(
+                            withTitle: reminderTitle!,
+                            taskDescription: reminderTaskDescription!,
+                            latitude: (reminderLocation?.coordinate.latitude)!,
+                            longitude: (reminderLocation?.coordinate.longitude)!,
+                            andLocationName: reminderLocationName!))!
+            } else {
+                reminderToCreate =
+                    (self.reminderFactory?
+                        .getLocalReminder(withTitle: reminderTitle!, andTaskDescription: reminderTaskDescription!, forDate: reminderDate!))!
+            }
+        }
+        
+        if(self.forBuddySwitch.isOn) {
+            // Remote
+            
+        } else {
+            _ = self.localRemindersData?.add(reminderToCreate)
+            self.hideLoadingIndicator()
+            self.navigationController?.popViewController(animated: true)
+        }
+        
     }
     
     @IBAction func forBuddySwitchValueChanged() {
@@ -113,7 +216,7 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UITextVi
         weak var weakSelf = self
         let picker = DateTimePicker.show()
         picker.highlightColor = UIColor(red:0.95, green:0.35, blue:0.14, alpha: 1.0)
-
+        
         if(self.reminderDate != nil) {
             picker.selectedDate = self.reminderDate!
         }

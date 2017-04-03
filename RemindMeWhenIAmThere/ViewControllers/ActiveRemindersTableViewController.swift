@@ -39,10 +39,6 @@ class ActiveRemindersTableViewController: UIViewController, UITableViewDataSourc
         self.remindersTableView.register(UINib(nibName: reminderCellNibName, bundle: nil), forCellReuseIdentifier: reminderCellIdentifier)
     }
     
-    func setupAddReminderNavbarItem() {
-        
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return reminderSectionsCount
     }
@@ -79,7 +75,6 @@ class ActiveRemindersTableViewController: UIViewController, UITableViewDataSourc
             self.refreshControl.beginRefreshing()
         }
         
-
         self.activeReminders = self.localRemindersData?.getActiveReminders() ?? []
 
         self.remindersTableView.reloadData()
