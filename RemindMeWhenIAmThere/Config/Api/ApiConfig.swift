@@ -9,7 +9,7 @@
 import Foundation
 
 class ApiConfig: BaseApiConfig {
-    var baseUrl = "http://192.168.1.96:3001"
+    var baseUrl = "https://remindmewheniamthere.herokuapp.com"
     
     var registerUserUrl: String {
         get {
