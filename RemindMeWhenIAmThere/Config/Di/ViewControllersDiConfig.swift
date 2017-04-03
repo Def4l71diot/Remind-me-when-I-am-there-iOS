@@ -35,5 +35,26 @@ class ViewControllersDiConfig {
             controller.usersData = usersData
             
         }
+        
+        container.storyboardInitCompleted(RegisterViewController.self)
+        { resolver, controller in
+            let usersData = resolver.resolve(BaseUsersData.self)
+            let userFactory = resolver.resolve(BaseUserFactory.self)
+            
+            controller.usersData = usersData
+            controller.userFactory = userFactory
+            
+        }
+        
+        container.storyboardInitCompleted(LoginViewController.self)
+        { resolver, controller in
+            let usersData = resolver.resolve(BaseUsersData.self)
+            let userFactory = resolver.resolve(BaseUserFactory.self)
+            let userAuthManager = resolver.resolve(BaseUserAuthManager.self)
+            
+            controller.usersData = usersData
+            controller.userFactory = userFactory
+            controller.authManager = userAuthManager
+        }
     }
 }
