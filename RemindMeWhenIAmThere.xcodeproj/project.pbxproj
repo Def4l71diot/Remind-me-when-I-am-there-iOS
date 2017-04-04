@@ -26,6 +26,8 @@
 		043A5F0B1E91DE99007DC81E /* BaseScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A5F0A1E91DE99007DC81E /* BaseScheduler.swift */; settings = {COMPILER_FLAGS = "-w"; }; };
 		043A5F0D1E9212FA007DC81E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A5F0C1E9212FA007DC81E /* RegisterViewController.swift */; };
 		043A5F0F1E921E6C007DC81E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A5F0E1E921E6C007DC81E /* LoginViewController.swift */; };
+		043A5F131E93D11E007DC81E /* EntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A5F121E93D11E007DC81E /* EntryPointViewController.swift */; };
+		043A5F151E93EDB4007DC81E /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A5F141E93EDB4007DC81E /* AccountViewController.swift */; };
 		046DDDC91E8B02D4000B0669 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DDDC81E8B02D4000B0669 /* JsonParser.swift */; };
 		046DDDCB1E8B079F000B0669 /* BaseJsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DDDCA1E8B079F000B0669 /* BaseJsonParser.swift */; };
 		047C4E861E90EB7000D1921F /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4E851E90EB7000D1921F /* AddReminderViewController.swift */; };
@@ -43,7 +45,6 @@
 		0493FA291E8FE143008BDAAE /* LocalRemindersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA281E8FE143008BDAAE /* LocalRemindersData.swift */; };
 		0493FA2B1E900847008BDAAE /* ReminderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA2A1E900847008BDAAE /* ReminderFactory.swift */; };
 		0493FA2D1E9062C0008BDAAE /* ActiveRemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493FA2C1E9062C0008BDAAE /* ActiveRemindersTableViewController.swift */; };
-		049667201E88736D0034C9AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496671F1E88736D0034C9AB /* MainViewController.swift */; };
 		049667231E8873DF0034C9AB /* AnimationViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667221E8873DF0034C9AB /* AnimationViewExtensions.swift */; };
 		049667271E8ADAA10034C9AB /* HttpRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667261E8ADAA10034C9AB /* HttpRequester.swift */; };
 		0496672A1E8ADAD00034C9AB /* BaseHttpRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049667291E8ADAD00034C9AB /* BaseHttpRequester.swift */; };
@@ -79,6 +80,8 @@
 		043A5F0A1E91DE99007DC81E /* BaseScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseScheduler.swift; path = Helpers/Base/BaseScheduler.swift; sourceTree = "<group>"; };
 		043A5F0C1E9212FA007DC81E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ViewControllers/RegisterViewController.swift; sourceTree = "<group>"; };
 		043A5F0E1E921E6C007DC81E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
+		043A5F121E93D11E007DC81E /* EntryPointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryPointViewController.swift; path = ViewControllers/EntryPointViewController.swift; sourceTree = "<group>"; };
+		043A5F141E93EDB4007DC81E /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountViewController.swift; path = ViewControllers/AccountViewController.swift; sourceTree = "<group>"; };
 		046DDDC81E8B02D4000B0669 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonParser.swift; path = Helpers/JsonParser.swift; sourceTree = "<group>"; };
 		046DDDCA1E8B079F000B0669 /* BaseJsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseJsonParser.swift; path = Helpers/Base/BaseJsonParser.swift; sourceTree = "<group>"; };
 		047C4E851E90EB7000D1921F /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddReminderViewController.swift; path = ViewControllers/AddReminderViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +99,6 @@
 		0493FA281E8FE143008BDAAE /* LocalRemindersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalRemindersData.swift; path = Data/Local/LocalRemindersData.swift; sourceTree = "<group>"; };
 		0493FA2A1E900847008BDAAE /* ReminderFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderFactory.swift; path = Models/Factories/ReminderFactory.swift; sourceTree = "<group>"; };
 		0493FA2C1E9062C0008BDAAE /* ActiveRemindersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActiveRemindersTableViewController.swift; path = ViewControllers/ActiveRemindersTableViewController.swift; sourceTree = "<group>"; };
-		0496671F1E88736D0034C9AB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		049667221E8873DF0034C9AB /* AnimationViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationViewExtensions.swift; path = ViewControllers/Extensions/AnimationViewExtensions.swift; sourceTree = "<group>"; };
 		049667261E8ADAA10034C9AB /* HttpRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpRequester.swift; path = Helpers/HttpRequester.swift; sourceTree = "<group>"; };
 		049667291E8ADAD00034C9AB /* BaseHttpRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseHttpRequester.swift; path = Helpers/Base/BaseHttpRequester.swift; sourceTree = "<group>"; };
@@ -280,11 +282,12 @@
 			isa = PBXGroup;
 			children = (
 				049667211E8873960034C9AB /* Extensions */,
-				0496671F1E88736D0034C9AB /* MainViewController.swift */,
 				0493FA2C1E9062C0008BDAAE /* ActiveRemindersTableViewController.swift */,
 				047C4E851E90EB7000D1921F /* AddReminderViewController.swift */,
 				043A5F0C1E9212FA007DC81E /* RegisterViewController.swift */,
 				043A5F0E1E921E6C007DC81E /* LoginViewController.swift */,
+				043A5F121E93D11E007DC81E /* EntryPointViewController.swift */,
+				043A5F141E93EDB4007DC81E /* AccountViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -524,7 +527,6 @@
 			files = (
 				04FAA3941E8C53B80023CBE3 /* User.swift in Sources */,
 				048208371E8E91A5004AAF9B /* BaseReminderDictExtension.swift in Sources */,
-				049667201E88736D0034C9AB /* MainViewController.swift in Sources */,
 				0405EA171E907B2C004134F0 /* ModelFactoriesDiConfig.swift in Sources */,
 				04FAA3971E8C54650023CBE3 /* BaseUserDictExtension.swift in Sources */,
 				0493FA1F1E8FBB62008BDAAE /* ReminderEntityExtension.swift in Sources */,
@@ -548,12 +550,14 @@
 				0493FA2D1E9062C0008BDAAE /* ActiveRemindersTableViewController.swift in Sources */,
 				04367EB91E82990B00718595 /* RemindMeWhenIAmThere.xcdatamodeld in Sources */,
 				046DDDC91E8B02D4000B0669 /* JsonParser.swift in Sources */,
+				043A5F151E93EDB4007DC81E /* AccountViewController.swift in Sources */,
 				04827A3B1E8BC3D800251E21 /* ApiConfig.swift in Sources */,
 				0421F6431E8DB6FD00A4093C /* BaseUsersData.swift in Sources */,
 				04367EB11E82990A00718595 /* AppDelegate.swift in Sources */,
 				04351ABD1E8E69DF0053A22A /* Reminder.swift in Sources */,
 				0405EA131E9076D4004134F0 /* SwinjectBootstrap.swift in Sources */,
 				04FAA3A21E8D8CE50023CBE3 /* UserAuthManager.swift in Sources */,
+				043A5F131E93D11E007DC81E /* EntryPointViewController.swift in Sources */,
 				04827A3D1E8BE62900251E21 /* UsersData.swift in Sources */,
 				04FAA3A41E8D99BD0023CBE3 /* BaseUserAuthManager.swift in Sources */,
 				043A5F0F1E921E6C007DC81E /* LoginViewController.swift in Sources */,

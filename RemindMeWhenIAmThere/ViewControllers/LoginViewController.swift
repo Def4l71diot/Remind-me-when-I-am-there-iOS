@@ -18,18 +18,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var usersData: BaseUsersData?
     var userFactory: BaseUserFactory?
     var authManager: BaseUserAuthManager?
+    var appDelegate: AppDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.usernameTextField.delegate = self
+        self.passwordTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
-        self.usernameTextField.delegate = self
-        self.passwordTextField.delegate = self
-
     }
     
     @IBAction func login(_ sender: Any) {
@@ -54,20 +53,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.usersData?.login(user: loginUser!)
         { loggedUser, errorMessage in
             
-            if(errorMessage != nil) {
+            if errorMessage != nil {
                 DispatchQueue.main.async {
                     weakSelf?.hideLoadingIndicator()
                     weakSelf?.showErrorMessage(message: errorMessage!)
-                    return
                 }
+                return
             }
             
             weakSelf?.authManager?.setUser(loggedInUser: loggedUser!)
             
             DispatchQueue.main.async {
-                let loggedInVC = weakSelf?.storyboard?.instantiateViewController(withIdentifier: "logged-in-app-part")
                 weakSelf?.hideLoadingIndicator()
-                weakSelf?.present(loggedInVC!, animated: true)
+                weakSelf?.appDelegate?.hasActiveUserSession = true
             }
             
         }
@@ -85,15 +83,5 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         return false
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

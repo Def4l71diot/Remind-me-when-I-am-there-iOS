@@ -24,6 +24,8 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UITextVi
     let enterLocationNameString = "Please enter a location name!"
     let locationNamePlaceholder = "Location Name"
     let okString = "OK"
+    let successAlertTitle = "Job done!"
+    let successfulySentReminderToUser = "Reminder sent to %@! Keep in mind that they need to accept it first!"
     
     @IBOutlet weak var createReminderButton: UIBarButtonItem!
     
@@ -182,18 +184,30 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UITextVi
         }
         
         if(self.forBuddySwitch.isOn) {
-            // Remote
+            weak var weakSelf = self
+            
+            let timeout = DispatchTime.now() + .seconds(3)
+            let successString = String(format: successfulySentReminderToUser, buddyName!)
+            
+            DispatchQueue.main.asyncAfter(deadline: timeout) {
+                weakSelf?.hideLoadingIndicator()
+                weakSelf?.display(message: successString, withTitle: self.successAlertTitle)
+                { _ in
+                    _ = weakSelf?.navigationController?.popViewController(animated: true)
+                }
+            }
             
         } else {
             _ = self.localRemindersData?.add(reminderToCreate)
             self.hideLoadingIndicator()
-            _ = self.navigationController?.popViewController(animated: true)
             
             if(self.forLocationSwitch.isOn) {
                 
             } else {
                 self.remindersScheduler?.setReminderWithDate(reminderwithDate: reminderToCreate)
             }
+            
+            _ = self.navigationController?.popViewController(animated: true)
         }
         
     }
@@ -258,6 +272,7 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UITextVi
         { alertAction in
             let locationNameTextField = alert.textFields?[0]
             weakSelf?.reminderLocationName = locationNameTextField?.text
+            _ = weakSelf?.navigationController?.popViewController(animated: true)
         }
         
         alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in

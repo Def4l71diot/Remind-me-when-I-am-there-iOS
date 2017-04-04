@@ -48,13 +48,33 @@ class ViewControllersDiConfig {
         
         container.storyboardInitCompleted(LoginViewController.self)
         { resolver, controller in
+            let appDelegate = resolver.resolve(AppDelegate.self)
             let usersData = resolver.resolve(BaseUsersData.self)
             let userFactory = resolver.resolve(BaseUserFactory.self)
             let userAuthManager = resolver.resolve(BaseUserAuthManager.self)
             
+            controller.appDelegate = appDelegate
             controller.usersData = usersData
             controller.userFactory = userFactory
             controller.authManager = userAuthManager
+        }
+        
+        container.storyboardInitCompleted(EntryPointViewController.self)
+        { resolver, controller in
+            let appDelegate = resolver.resolve(AppDelegate.self)
+            let userAuthManager = resolver.resolve(BaseUserAuthManager.self)
+            
+            controller.appDelegate = appDelegate
+            controller.userAuthManager = userAuthManager
+        }
+        
+        container.storyboardInitCompleted(AccountViewController.self)
+        { resolver, controller in
+            let appDelegate = resolver.resolve(AppDelegate.self)
+            let userAuthManager = resolver.resolve(BaseUserAuthManager.self)
+            
+            controller.appDelegate = appDelegate
+            controller.userAuthManager = userAuthManager
         }
     }
 }

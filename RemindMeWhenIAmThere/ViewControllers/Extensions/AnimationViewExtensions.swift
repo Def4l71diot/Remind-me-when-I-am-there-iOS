@@ -42,14 +42,14 @@ extension UIViewController {
         loadingIndicator.removeFromSuperview()
     }
     
-    func display(message: String, withTitle title: String) {
+    func display(message: String, withTitle title: String, userAcknowledgedMessageHandler completionHandler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: completionHandler))
         self.present(alert, animated: true, completion: nil)
     }
     
-    func showErrorMessage(message: String) {
-        self.display(message: message, withTitle: "Error")
+    func showErrorMessage(message: String, userAcknowlegedErrorMessageHandler completionHandler: ((UIAlertAction) -> Void)? = nil) {
+        self.display(message: message, withTitle: "Error", userAcknowledgedMessageHandler: completionHandler)
     }
     
     func animateSetView(view: UIView, hidden: Bool) {

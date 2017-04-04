@@ -75,12 +75,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         weak var weakSelf = self
         self.usersData?.register(user: userToRegister!)
         { result, errorMessage in
-            if(errorMessage != nil) {
+            
+            if errorMessage != nil {
                 DispatchQueue.main.async {
                     weakSelf?.hideLoadingIndicator()
                     weakSelf?.showErrorMessage(message: errorMessage!)
-                    return
                 }
+                return
             }
             DispatchQueue.main.async {
                 weakSelf?.hideLoadingIndicator()

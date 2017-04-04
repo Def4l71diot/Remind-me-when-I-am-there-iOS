@@ -12,7 +12,19 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var window: UIWindow?
+    
+    
+    var hasActiveUserSession: Bool? {
+        willSet {
+            if(newValue!) {
+                self.setLoggedUserSession()
+            } else {
+                self.setGuestUserSession()
+            }
+        }
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -43,7 +55,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-
+    
+    private func setLoggedUserSession() {
+        let userSessionController = self.mainStoryboard.instantiateViewController(withIdentifier: "logged-in-app-part") as! UITabBarController
+        
+        self.changeRootViewController(toController: userSessionController)
+    }
+    
+    private func setGuestUserSession() {
+        let guestSessionController = self.mainStoryboard.instantiateViewController(withIdentifier: "guest-user-app-part") as! UITabBarController
+        
+        self.changeRootViewController(toController: guestSessionController)
+    }
+    
+    private func changeRootViewController(toController vc: UITabBarController?) {
+        vc?.view.frame = (self.window?.rootViewController?.view.frame)!
+        vc?.view.layoutIfNeeded()
+        
+        weak var weakSelf = self
+        UIView.transition(with: self.window!, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            weakSelf?.window?.rootViewController = vc
+        }, completion: { completed in
+            // maybe do something here
+        })
+    }
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
