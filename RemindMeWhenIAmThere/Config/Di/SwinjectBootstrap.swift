@@ -25,11 +25,17 @@ extension SwinjectStoryboard {
         
         ModelFactoriesDiConfig.setup(defaultContainer)
         
-        HelpersDiConfig.setup(defaultContainer)
         
         LocalDataDiConfig.setup(defaultContainer)
+        
+        HelpersDiConfig.setup(defaultContainer)
+        
         RemoteDataDiConfig.setup(defaultContainer)
         
         ViewControllersDiConfig.setup(defaultContainer)
+    }
+    
+    static func getReminderManager() -> BaseReminderManager {
+        return defaultContainer.resolve(BaseReminderManager.self)!
     }
 }

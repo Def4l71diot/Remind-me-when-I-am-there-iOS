@@ -28,5 +28,16 @@ class HelpersDiConfig {
         }.inObjectScope(.container)
         
         container.register(BaseScheduler.self) {_ in Scheduler()}.inObjectScope(.container)
+        
+        container.register(BaseReminderManager.self)
+        { resolver in
+            let localRemindersData = resolver.resolve(BaseLocalRemindersData.self)!
+            let scheduler = resolver.resolve(BaseScheduler.self)!
+            
+            let reminderManager =
+                ReminderManager(withLocalRemindersData: localRemindersData, andScheduler: scheduler)
+            
+            return reminderManager
+        }.inObjectScope(.container)
     }
 }

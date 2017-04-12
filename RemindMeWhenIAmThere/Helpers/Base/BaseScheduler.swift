@@ -9,5 +9,5 @@
 import Foundation
 
 protocol BaseScheduler {
-    func setReminderWithDate(reminderwithDate reminder: BaseReminder)
+    func setReminder(reminder: BaseReminder)
 }

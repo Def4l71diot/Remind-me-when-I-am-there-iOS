@@ -16,6 +16,8 @@
 		0405EA211E909F34004134F0 /* ReminderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0405EA1F1E909F34004134F0 /* ReminderTableViewCell.xib */; };
 		041DEB8A1E914B7E0007E88D /* KeyboardAdaptorViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041DEB891E914B7E0007E88D /* KeyboardAdaptorViewExtension.swift */; };
 		0421F6431E8DB6FD00A4093C /* BaseUsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421F6421E8DB6FD00A4093C /* BaseUsersData.swift */; };
+		042B1E2B1E9E54BE00573D33 /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B1E2A1E9E54BE00573D33 /* ReminderManager.swift */; };
+		042B1E2D1E9E59D600573D33 /* BaseReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B1E2C1E9E59D600573D33 /* BaseReminderManager.swift */; };
 		04351ABD1E8E69DF0053A22A /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04351ABC1E8E69DF0053A22A /* Reminder.swift */; };
 		04367EB11E82990A00718595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04367EB01E82990A00718595 /* AppDelegate.swift */; };
 		04367EB61E82990B00718595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04367EB41E82990B00718595 /* Main.storyboard */; };
@@ -68,6 +70,8 @@
 		0405EA1F1E909F34004134F0 /* ReminderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReminderTableViewCell.xib; path = CustomViews/ReminderTableViewCell/ReminderTableViewCell.xib; sourceTree = "<group>"; };
 		041DEB891E914B7E0007E88D /* KeyboardAdaptorViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardAdaptorViewExtension.swift; path = ViewControllers/Extensions/KeyboardAdaptorViewExtension.swift; sourceTree = "<group>"; };
 		0421F6421E8DB6FD00A4093C /* BaseUsersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseUsersData.swift; path = Data/Remote/Base/BaseUsersData.swift; sourceTree = "<group>"; };
+		042B1E2A1E9E54BE00573D33 /* ReminderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderManager.swift; path = Helpers/ReminderManager.swift; sourceTree = "<group>"; };
+		042B1E2C1E9E59D600573D33 /* BaseReminderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseReminderManager.swift; path = Helpers/Base/BaseReminderManager.swift; sourceTree = "<group>"; };
 		04351ABC1E8E69DF0053A22A /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reminder.swift; path = Models/Reminder.swift; sourceTree = "<group>"; };
 		04367EAD1E82990A00718595 /* RemindMeWhenIAmThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemindMeWhenIAmThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04367EB01E82990A00718595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 				046DDDC81E8B02D4000B0669 /* JsonParser.swift */,
 				04FAA3A11E8D8CE50023CBE3 /* UserAuthManager.swift */,
 				043A5F081E91DE7D007DC81E /* Scheduler.swift */,
+				042B1E2A1E9E54BE00573D33 /* ReminderManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				046DDDCA1E8B079F000B0669 /* BaseJsonParser.swift */,
 				04FAA3A31E8D99BD0023CBE3 /* BaseUserAuthManager.swift */,
 				043A5F0A1E91DE99007DC81E /* BaseScheduler.swift */,
+				042B1E2C1E9E59D600573D33 /* BaseReminderManager.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -539,6 +545,7 @@
 				0405EA201E909F34004134F0 /* ReminderTableViewCell.swift in Sources */,
 				0493FA221E8FC085008BDAAE /* DateStringConversionExtension.swift in Sources */,
 				046DDDCB1E8B079F000B0669 /* BaseJsonParser.swift in Sources */,
+				042B1E2D1E9E59D600573D33 /* BaseReminderManager.swift in Sources */,
 				04827A341E8BC20000251E21 /* BaseApiData.swift in Sources */,
 				04FAA3A01E8D6C0B0023CBE3 /* BaseUserFactory.swift in Sources */,
 				0493FA271E8FD8A5008BDAAE /* BaseLocalRemindersData.swift in Sources */,
@@ -561,6 +568,7 @@
 				04827A3D1E8BE62900251E21 /* UsersData.swift in Sources */,
 				04FAA3A41E8D99BD0023CBE3 /* BaseUserAuthManager.swift in Sources */,
 				043A5F0F1E921E6C007DC81E /* LoginViewController.swift in Sources */,
+				042B1E2B1E9E54BE00573D33 /* ReminderManager.swift in Sources */,
 				0405EA1B1E908986004134F0 /* ViewControllersDiConfig.swift in Sources */,
 				043A5F091E91DE7D007DC81E /* Scheduler.swift in Sources */,
 				0405EA191E907CC6004134F0 /* DataDiConfig.swift in Sources */,

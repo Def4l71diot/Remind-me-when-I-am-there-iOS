@@ -13,7 +13,7 @@ protocol BaseLocalRemindersData: BaseLocalData {
     
     var reminderFactory: BaseReminderFactory{get set}
     
-    func add(_ object: BaseReminder) -> Bool
+    func add(_ object: BaseReminder) -> BaseReminder?
     
     func update(_ object: BaseReminder) -> Bool
     

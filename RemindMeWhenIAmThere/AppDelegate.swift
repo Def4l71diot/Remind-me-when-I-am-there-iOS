@@ -8,13 +8,23 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+
+import SwinjectStoryboard
+
+let reminderNotificationAcknowledgedAction = "VL.RMWIT.reminderAcknowledged"
+let reminderNotificationAcknowledgeTitle = "Acknowledge"
+let reminderNotificationCategoryName = "VL.RMWIT.reminderNotificationCategory"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var window: UIWindow?
     
+    let notificationCenter = UNUserNotificationCenter.current()
+    
+    var reminderManager: BaseReminderManager?
     
     var hasActiveUserSession: Bool? {
         willSet {
@@ -28,7 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        self.loadDependencies()
+        self.setupNotifications()
+        self.notificationCenter.delegate = self
+        
         return true
     }
 
@@ -56,6 +70,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
+    
+    // MARK: - Notifications setup and handling
+    
+    func setupNotifications() {
+        let acknowledgeAction =
+            UNNotificationAction(
+                identifier: reminderNotificationAcknowledgedAction,
+                title: reminderNotificationAcknowledgeTitle, options: [])
+        
+        let reminderNotificationCategory =
+            UNNotificationCategory(
+                identifier: reminderNotificationCategoryName,
+                actions: [acknowledgeAction],
+                intentIdentifiers: [],
+                options: [])
+        
+        self.notificationCenter.setNotificationCategories([reminderNotificationCategory])
+    }
+    
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        if (response.actionIdentifier == reminderNotificationAcknowledgedAction
+            || response.notification.request.content.categoryIdentifier == reminderNotificationCategoryName) {
+            let reminderIdUrlString = response.notification.request.content.userInfo[reminderNotificationDbIdKey] as! String
+            let reminderIdUrl = URL(string: reminderIdUrlString)
+            let reminderId = self.persistentContainer.viewContext.persistentStoreCoordinator?.managedObjectID(forURIRepresentation: reminderIdUrl!)
+            self.reminderManager?.setReminderCompletedById(id: reminderId!)
+        }
+        completionHandler()
+    }
+    
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    // MARK: - User session handling
+    
     private func setLoggedUserSession() {
         let userSessionController = self.mainStoryboard.instantiateViewController(withIdentifier: "logged-in-app-part") as! UITabBarController
         
@@ -75,10 +133,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         weak var weakSelf = self
         UIView.transition(with: self.window!, duration: 0.3, options: .transitionCrossDissolve, animations: {
             weakSelf?.window?.rootViewController = vc
-        }, completion: { completed in
-            // maybe do something here
         })
     }
+    
+    func loadDependencies() {
+        self.reminderManager = SwinjectStoryboard.getReminderManager()
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {

@@ -25,7 +25,7 @@ class LocalRemindersData: BaseLocalRemindersData {
         self.reminderFactory = reminderFactory
     }
     
-    func add(_ object: BaseReminder) -> Bool {
+    func add(_ object: BaseReminder) -> BaseReminder? {
         let reminderToAdd =
             EntityClass(
                 entity: entity,
@@ -33,7 +33,13 @@ class LocalRemindersData: BaseLocalRemindersData {
                 fromReminder: object)
         
         self.dbContext.insert(reminderToAdd)
-        return self.saveChanges()
+        if(self.saveChanges()) {
+//            let createdReminder = self.getAll().last!
+//            return createdReminder
+            return reminderToAdd.toBaseReminder(fromReminderFactory: self.reminderFactory)
+        } else {
+            return nil
+        }
         
     }
     

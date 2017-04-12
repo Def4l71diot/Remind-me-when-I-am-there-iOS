@@ -11,25 +11,42 @@ import UIKit
 import UserNotifications
 import CoreLocation
 
+let reminderNotificationDbIdKey = "VL.RMWIT.reminder.objectId"
+
 class Scheduler: BaseScheduler{
+    var center = UNUserNotificationCenter.current()
     
-    func setReminderWithDate(reminderwithDate reminder: BaseReminder) {
-        
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .badge, .sound])
+    func setReminder(reminder: BaseReminder) {
+        weak var weakSelf = self
+        self.center.requestAuthorization(options: [.alert, .badge, .sound])
         { (success, error) in
             guard success else { return }
             
-            self.createNotificationFromReminder(reminder)
+            if(reminder.date != nil) {
+                
+                weakSelf?.createNotificationFromDateReminder(reminder)
+            } else {
+                weakSelf?.createNotificationFromGeoReminder(reminder)
+            }
+            
             
         }
     }
     
-    func createNotificationFromReminder(_ reminder: BaseReminder) {
+    func createNotificationFromDateReminder(_ reminder: BaseReminder) {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = reminder.title
         notificationContent.subtitle = "It is \(reminder.date!.getLocalDateString())"
         notificationContent.body = reminder.taskDescription
+        
+        let reminderIdUrlString = reminder.id!.uriRepresentation().absoluteString
+        
+        notificationContent.userInfo[reminderNotificationDbIdKey] = reminderIdUrlString
+        
+        notificationContent.sound = UNNotificationSound.default()
+        
+        notificationContent.categoryIdentifier = reminderNotificationCategoryName
+        
         let calendar = Calendar.current
         let year = calendar.component(.year, from: reminder.date!)
         let month = calendar.component(.month, from: reminder.date!)
@@ -56,14 +73,15 @@ class Scheduler: BaseScheduler{
             yearForWeekOfYear: nil)
         
         let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
+        let identifier = reminder.id!.uriRepresentation().absoluteString
         
         let notificationRequest =
-            UNNotificationRequest(identifier: reminder.title, content: notificationContent, trigger: notificationTrigger)
+            UNNotificationRequest(identifier: identifier, content: notificationContent, trigger: notificationTrigger)
         
         
-        UNUserNotificationCenter.current().add(notificationRequest) { (error) in
-            if let error = error {
-                print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
+        self.center.add(notificationRequest) { (error) in
+            if error != nil {
+                print("Unable to add reminder")
             }
         }
     }

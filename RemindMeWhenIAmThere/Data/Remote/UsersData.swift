@@ -95,7 +95,7 @@ class UsersData: BaseUsersData, BaseApiData {
         
         weak var weakSelf = self
         
-        self.httpRequester.postJson(
+        self.httpRequester.putJson(
             toUrl: passwordResetUrl,
             withBody: emailDict,
             andHeaders: nil)

@@ -22,14 +22,12 @@ class ViewControllersDiConfig {
         
         container.storyboardInitCompleted(AddReminderViewController.self)
         { resolver, controller in
-            let scheduler = resolver.resolve(BaseScheduler.self)!
-            let localRemindersData = resolver.resolve(BaseLocalRemindersData.self)!
+            let reminderManager = resolver.resolve(BaseReminderManager.self)!
             let reminderFactory = resolver.resolve(BaseReminderFactory.self)!
             let userAuthManager = resolver.resolve(BaseUserAuthManager.self)!
             let usersData = resolver.resolve(BaseUsersData.self)!
             
-            controller.remindersScheduler = scheduler
-            controller.localRemindersData = localRemindersData
+            controller.reminderManager = reminderManager
             controller.reminderFactory = reminderFactory
             controller.userAuthManager = userAuthManager
             controller.usersData = usersData

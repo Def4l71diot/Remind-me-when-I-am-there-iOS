@@ -41,8 +41,7 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UITextVi
     var userAuthManager: BaseUserAuthManager?
     var usersData: BaseUsersData?
     var reminderFactory: BaseReminderFactory?
-    var localRemindersData: BaseLocalRemindersData?
-    var remindersScheduler: BaseScheduler?
+    var reminderManager: BaseReminderManager?
     
     var reminderDate: Date?
     var reminderLocation: Location?
@@ -198,15 +197,8 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UITextVi
             }
             
         } else {
-            _ = self.localRemindersData?.add(reminderToCreate)
-            self.hideLoadingIndicator()
-            
-            if(self.forLocationSwitch.isOn) {
-                
-            } else {
-                self.remindersScheduler?.setReminderWithDate(reminderwithDate: reminderToCreate)
-            }
-            
+            _ = self.reminderManager?.setReminder(reminder: reminderToCreate)
+
             _ = self.navigationController?.popViewController(animated: true)
         }
         
